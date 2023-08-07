@@ -1,0 +1,66 @@
+
+==[ CLIENT ]==
+
+
+==[ MIDDLEWARE ]==
+
+// declare one sock per rm, and one sock for receiving from clients
+private static ServerSocket serverSocket;
+private static Socket flightSocket;
+private static Socket carSocket;
+...
+private static Hashmap socketList
+
+private static int numThreads;
+
+public main() {
+    while (true) {
+        init();
+        Socket clientSocket = serverSocket.accept(); // no timeout
+        add ip to sock list
+        executor.submit(sender);
+        submit receiver
+    }
+}
+
+public init() {
+    // initialize the global rm sockets
+    ServerSocket serverSocket = new ServerSocket(7050);
+    out = new PrintWriter(sock.getOutputStream(), true);
+    in = new BufferedReader(new InputStreamReader(sock.getInputStream()));
+}
+
+
+// the reason for synchronizing is because it's the alternative to creating sockets all the time
+// aka we opt for global sockets instead of creating a new socket every interaction
+private synchronized sendToFlightRM(msg);
+private synchronized sendToCarRM(msg);
+...
+
+...
+
+
+
+public run(Socket sock) {
+    // parse info from sock (using the TA's pre-rolled parser?)
+    // pattern match on the dest ip, distributing it to the unique socket (will block, can spin but logic will be more complex)
+    
+    
+    public run()
+    // wait for response back, and timeout if it takes too long
+}
+
+
+
+
+==[ TCPRESOURCEMANAGER ]==
+
+// basically the exact same as the regular resource manager
+// with the exception that the information comes in through sockets instead of rmiobjects
+
+
+
+
+
+
+
